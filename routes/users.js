@@ -60,7 +60,7 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 // profile
-router.get('/test', (req, res, next) => { // redo auth from brad traversy vid here (can't remember how lol)
+router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => { // redo auth from brad traversy vid here (can't remember how lol)
     res.json({user: req.user});
 });
 
