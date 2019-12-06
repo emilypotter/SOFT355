@@ -1,0 +1,36 @@
+<div class="bg-img">
+    <div class="container">
+      <p><b>Select a region</b></p>
+      <div class="input-group">
+        <!-- <select [(ngModel)]="spotService.selectedRegionId" name="selectedRegionId" class="form-control">
+          <option selected disabled>--Select--</option>
+          <option *ngFor="let region of regions" [value]="region.surflineRegionId">{{ region.regionName }}</option>
+        </select> -->
+
+        <select name="selectedRegionId" class="form-control">
+            <option selected disabled>--Select--</option>
+          </select>
+          
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit" [routerLink]="['/region']"
+            [queryParams]="{ id: spotService.selectedRegionId }">
+            <i class="material-icons">search</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <p>Or<br /><br /><b>Search for a spot</b></p>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for a spot..." id="txtSearch" />
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <i class="material-icons">search</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <ngx-loading [show]="loading"></ngx-loading> -->
