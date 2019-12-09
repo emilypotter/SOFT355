@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ValidateService } from '../../services/validate.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private validateService: ValidateService, private authService: AuthService, private router: Router, private flashMessage: FlashMessagesService) { }
+  constructor(private validateService: ValidateService, private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -30,33 +30,27 @@ export class RegisterComponent implements OnInit {
 
     // required fields
     if (!this.validateService.validateRegister(user)) {
+      this.toastr.error('All fields are required', 'Error');
+      this.router.navigate(['/register']);
       return false;
     }
 
     // validate email
     if (!this.validateService.validateEmail(user.email)) {
+      this.toastr.error('Invalid email address', 'Error');
+      this.router.navigate(['/register']);
       return false;
     }
 
     // // register user
     this.authService.registerUser(user).subscribe(() => {
-      this.flashMessage.show('Registration successful', {cssClass: 'alert-success', timeout: 3000});
-      this.router.navigate(['']);
+      this.router.navigate(['']).then(() => {
+        this.toastr.success('Success', 'User Registered');
+      });
     }, error => {
-      this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+      this.toastr.error('Error', 'Unable to register user');
       this.router.navigate(['/register']);
       console.log(error);
     });
-
-    // NEXT: flash messages and navigation not working
-
-    // this.authService.registerUser(user).subscribe((data: any) => {
-    //   if (data.success) {
-    //     this.router.navigate(['/#']);
-    //   } else {
-    //     this.router.navigate(['/register']);
-    //   }
-    // });
-
   }
 }
