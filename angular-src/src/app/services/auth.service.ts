@@ -23,4 +23,31 @@ export class AuthService {
     // return this.http.post('http://localhost:3000/users/authenticate', user, {headers});
     return this.http.post('http://localhost:3000/users/authenticate', user);
   }
+
+  getProfile() {
+    this.loadToken();
+    return this.http.get('users/profile');
+  }
+
+  storeUserData(token, user) {
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
+  }
+
+  loadToken() {
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
+
+  // loggedIn() {
+  //   return tokenNotExpired('id_token');
+  // }
+
+  public logout() {
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
 }
