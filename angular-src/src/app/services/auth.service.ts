@@ -13,16 +13,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  registerUser(user) { // make observable?
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    // return this.http.post('http://localhost:3000/users/register', user, {headers});
-    return this.http.post('http://localhost:3000/users/register', user);
+  registerUser(user) {
+    return this.http.post('users/register', user);
   }
 
   authenticateUser(user) {
-    // return this.http.post('http://localhost:3000/users/authenticate', user, {headers});
-    return this.http.post('http://localhost:3000/users/authenticate', user);
+    return this.http.post('users/authenticate', user);
   }
 
   getProfile() {
@@ -31,7 +27,7 @@ export class AuthService {
       Authorization: this.authToken,
       'Content-Type': 'application/json'
     });
-    return this.http.get('http://localhost:3000/users/profile', {headers});
+    return this.http.get('users/profile', {headers});
   }
 
   // getProfile() {
