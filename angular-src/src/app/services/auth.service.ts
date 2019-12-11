@@ -18,6 +18,7 @@ export class AuthService {
   }
 
   authenticateUser(user) {
+    // return this.http.post('users/authenticate', user, {headers});
     return this.http.post('users/authenticate', user);
   }
 
