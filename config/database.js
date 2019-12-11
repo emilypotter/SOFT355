@@ -1,4 +1,4 @@
 module.exports = {
-    database: 'mongodb://localhost:27017/swell',
+    database: 'mongodb+srv://emilypotter:N3llytheelephan!@cluster0-uixwl.mongodb.net/test?retryWrites=true&w=majority',
     secret: 'secret'
   }
