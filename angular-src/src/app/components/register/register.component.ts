@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private validateService: ValidateService, private authService: AuthService, private router: Router, private toastr: ToastrService) { }
+  constructor(private validateService: ValidateService, public authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }

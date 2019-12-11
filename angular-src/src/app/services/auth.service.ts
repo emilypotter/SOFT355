@@ -8,10 +8,11 @@ const helper = new JwtHelperService();
   providedIn: 'root'
 })
 export class AuthService {
+
+  constructor(private http: HttpClient) { }
   authToken: any;
   user: any;
 
-  constructor(private http: HttpClient) { }
 
   registerUser(user) {
     return this.http.post('users/register', user);
