@@ -900,6 +900,7 @@ let AuthService = class AuthService {
         return this.http.post('users/register', user);
     }
     authenticateUser(user) {
+        // return this.http.post('users/authenticate', user, {headers});
         return this.http.post('users/authenticate', user);
     }
     getProfile() {

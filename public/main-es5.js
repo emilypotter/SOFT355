@@ -869,6 +869,7 @@
                     return this.http.post('users/register', user);
                 };
                 AuthService.prototype.authenticateUser = function (user) {
+                    // return this.http.post('users/authenticate', user, {headers});
                     return this.http.post('users/authenticate', user);
                 };
                 AuthService.prototype.getProfile = function () {
