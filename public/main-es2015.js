@@ -897,14 +897,10 @@ let AuthService = class AuthService {
         this.http = http;
     }
     registerUser(user) {
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        // return this.http.post('http://localhost:3000/users/register', user, {headers});
-        return this.http.post('http://localhost:3000/users/register', user);
+        return this.http.post('users/register', user);
     }
     authenticateUser(user) {
-        // return this.http.post('http://localhost:3000/users/authenticate', user, {headers});
-        return this.http.post('http://localhost:3000/users/authenticate', user);
+        return this.http.post('users/authenticate', user);
     }
     getProfile() {
         this.loadToken();
@@ -912,7 +908,7 @@ let AuthService = class AuthService {
             Authorization: this.authToken,
             'Content-Type': 'application/json'
         });
-        return this.http.get('http://localhost:3000/users/profile', { headers });
+        return this.http.get('users/profile', { headers });
     }
     // getProfile() {
     //   this.loadToken();

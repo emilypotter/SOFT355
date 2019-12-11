@@ -866,14 +866,10 @@
                     this.http = http;
                 }
                 AuthService.prototype.registerUser = function (user) {
-                    var headers = new Headers();
-                    headers.append('Content-Type', 'application/json');
-                    // return this.http.post('http://localhost:3000/users/register', user, {headers});
-                    return this.http.post('http://localhost:3000/users/register', user);
+                    return this.http.post('users/register', user);
                 };
                 AuthService.prototype.authenticateUser = function (user) {
-                    // return this.http.post('http://localhost:3000/users/authenticate', user, {headers});
-                    return this.http.post('http://localhost:3000/users/authenticate', user);
+                    return this.http.post('users/authenticate', user);
                 };
                 AuthService.prototype.getProfile = function () {
                     this.loadToken();
@@ -881,7 +877,7 @@
                         Authorization: this.authToken,
                         'Content-Type': 'application/json'
                     });
-                    return this.http.get('http://localhost:3000/users/profile', { headers: headers });
+                    return this.http.get('users/profile', { headers: headers });
                 };
                 // getProfile() {
                 //   this.loadToken();
