@@ -414,9 +414,9 @@ if (content.locals) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Uni\Year 3\soft 355\Swell\angular-src\src\styles.css */"./src/styles.css");
-__webpack_require__(/*! D:\Uni\Year 3\soft 355\Swell\angular-src\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-module.exports = __webpack_require__(/*! D:\Uni\Year 3\soft 355\Swell\angular-src\node_modules\ngx-toastr\toastr.css */"./node_modules/ngx-toastr/toastr.css");
+__webpack_require__(/*! C:\Users\emily\OneDrive\Desktop\Swell\angular-src\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\emily\OneDrive\Desktop\Swell\angular-src\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+module.exports = __webpack_require__(/*! C:\Users\emily\OneDrive\Desktop\Swell\angular-src\node_modules\ngx-toastr\toastr.css */"./node_modules/ngx-toastr/toastr.css");
 
 
 /***/ })
