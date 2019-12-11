@@ -34,7 +34,7 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 
 // set static 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // body parser middleware
 app.use(bodyParser.json());
