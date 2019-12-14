@@ -65,20 +65,3 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log('Server started on port '+port);
 });
-
-mongotest() {
-  const uri = 'mongodb://user:pass@host:port/dbname';
-
-  mongodb.MongoClient.connect(uri, (err, client) => {
-    if (err) { throw err; }
-
-    const db = client.db('swell');
-    const users = db.collection('users');
-
-    users.update({name: 'John Doe', username: 'johnny', email: 'jon@email.com', password: 'qwerty'}, (err2, result) => {
-      if (err2) { throw err2; }
-
-      return result;
-    });
-  });
-}

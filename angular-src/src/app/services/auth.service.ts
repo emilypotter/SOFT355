@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 
 const helper = new JwtHelperService();
 
@@ -9,13 +10,13 @@ const helper = new JwtHelperService();
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private http: HttpClient) { }
   authToken: any;
   user: any;
 
 
   registerUser(user) {
-    return this.http.post('users/register', user);
+    return this.http.post('https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellusers', user);
   }
 
   authenticateUser(user) {
@@ -38,25 +39,25 @@ export class AuthService {
   // }
 
   storeUserData(token, user) {
-    localStorage.setItem('id_token', token);
-    localStorage.setItem('user', JSON.stringify(user));
+    this.localStorage.setItem('id_token', token);
+    this.localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
   }
 
   loadToken() {
-    const token = localStorage.getItem('id_token');
+    const token = this.localStorage.getItem('id_token');
     this.authToken = token;
   }
 
   isTokenExpired() {
-    const isExpired = helper.isTokenExpired(localStorage.id_token);
+    const isExpired = helper.isTokenExpired(this.localStorage.id_token);
     return isExpired;
   }
 
   public logout() {
     this.authToken = null;
     this.user = null;
-    localStorage.clear();
+    this.localStorage.clear();
   }
 }

@@ -83,7 +83,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <h2 class=\"page-header\">Register</h2>\r\n    <form (submit) =\"onRegisterSubmit()\">\r\n      <div class=\"form-group\">\r\n        <label for=\"name\">Name</label>\r\n        <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"username\">Username</label>\r\n        <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"email\">Email</label>\r\n        <input type=\"email\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"password\">Password</label>\r\n        <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\r\n      </div>\r\n      <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\r\n    </form>\r\n    </div>\r\n\r\n<button (click)=\"authService.mongotest()\">test</button>\r\n    ");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <h2 class=\"page-header\">Register</h2>\r\n    <form (submit) =\"onRegisterSubmit()\">\r\n      <div class=\"form-group\">\r\n        <label for=\"name\">Name</label>\r\n        <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"username\">Username</label>\r\n        <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"email\">Email</label>\r\n        <input type=\"email\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"password\">Password</label>\r\n        <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\r\n      </div>\r\n      <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\r\n    </form>\r\n    </div>\r\n    ");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -778,7 +778,6 @@
                         this.router.navigate(['/register']);
                         return false;
                     }
-                    // NEXT: FOLLOW PART 9 VID FROM 14:30
                     // // register user
                     this.authService.registerUser(user).subscribe(function () {
                         _this.router.navigate(['']).then(function () {
@@ -866,7 +865,7 @@
                     this.http = http;
                 }
                 AuthService.prototype.registerUser = function (user) {
-                    return this.http.post('users/register', user);
+                    return this.http.post('https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellusers', user);
                 };
                 AuthService.prototype.authenticateUser = function (user) {
                     // return this.http.post('users/authenticate', user, {headers});
